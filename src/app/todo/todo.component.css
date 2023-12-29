@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+
+#task{
+    font-family: Cursive, 'Brush Script', Monaco;
+}
+
+/* #errorMessage{
+    margin-left: 30%;
+} */
+
+#submitBtn, #EODBtn{
+    margin: 10%;
+}
+
+#StatusCheckbox{
+    margin-left: 16%;
+}

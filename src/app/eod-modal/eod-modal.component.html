@@ -1,0 +1,14 @@
+<div class="modal-overlay" (click)="close()">
+  <div class="modal">
+    <div class="modal-header">
+      <h4 class="modal-title">EOD Tasks</h4>
+      <span class="close-button" (click)="close()">&times;</span>
+    </div>
+    <div class="modal-body">
+      <!-- Displaying tasks with *ngFor Directive -->
+      <ul>
+        <li *ngFor="let task of tasks">{{ task.taskName }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

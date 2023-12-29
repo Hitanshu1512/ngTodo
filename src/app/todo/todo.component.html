@@ -1,0 +1,79 @@
+<div class="container">
+  <!-- ADD TASK FUNCTIONALITY -->
+  <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+    <div class="form-group">
+      <label for="task">Task</label>
+      <input
+        type="text"
+        class="form-control"
+        id="task"
+        placeholder="new task loading..."
+        name="task"
+        ngModel
+      />
+      <small id="errorMessage" class="form-text text-danger"
+        >Field can't be empty</small
+      >
+    </div>
+    <div class="text-center">
+      <button
+        [disabled]="taskForm.invalid"
+        id="submitBtn"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Add Task
+      </button>
+    </div>
+  </form>
+  <hr />
+  <!-- <p>{{taskForm.value | json}}</p> -->
+
+  <!-- STORE TASK IN A TODO TABLE FUNCTIONALITY -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Status</th>
+        <th scope="col">Task</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of taskArray; index as i">
+        <td>
+          <input id="StatusCheckbox" type="checkbox" (click)="onCheck(i)" />
+        </td>
+        <td>{{ t.taskName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- STORE TASK IN A FINISHED TABLE FUNCTIONALITY -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">FINISHED TASKS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of finishedArray; index as i">
+        <td>
+          <input id="StatusCheckbox" type="checkbox" checked disabled />
+        </td>
+        <td>{{ t.taskName }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- EOD BUTTON FUNCTIONALITY -->
+  <div class="text-center">
+    <form #eodForm="ngForm" (ngSubmit)="openEodModal(eodForm)">
+      <button
+        id="eod-btn"
+        type="submit"
+        class="btn btn-danger"
+      >
+        EOD
+      </button>
+    </form>
+  </div>
+</div>
